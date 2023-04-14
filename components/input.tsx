@@ -8,16 +8,10 @@ interface InputProps {
   type?: string;
 }
 
-const Input: React.FC<InputProps> = ({ 
-  id, 
-  onChange, 
-  value, 
-  label, 
-  type 
-}) => {
-    return(
-      <div className="relative">
-        <input 
+const Input: React.FC<InputProps> = ({ id, onChange, value, label, type }) => {
+  return (
+    <div className="relative">
+      <input
         onChange={onChange}
         value={value}
         type={type}
@@ -39,8 +33,9 @@ const Input: React.FC<InputProps> = ({
         invalid:border-b-1
         "
         placeholder=" " 
-        />
-        <label 
+      />
+      <label 
+        htmlFor={id} 
         className="
         absolute 
         text-md
@@ -57,12 +52,9 @@ const Input: React.FC<InputProps> = ({
         peer-placeholder-shown:translate-y-0 
         peer-focus:scale-75
         peer-focus:-translate-y-3
-      "
-        htmlFor={id}>
-            {label}
-        </label>
-      </div>
-    )
+      ">{label}</label>
+    </div>
+  )
 }
 
 export default Input;
